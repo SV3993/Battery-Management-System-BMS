@@ -2,6 +2,9 @@
 
 This project features a Battery Management System (BMS) using the ADC0804 Analog-to-Digital Converter and the AT89S52 (8051) microcontroller. It monitors battery parameters, calculates State of Charge (SOC), State of Health (SOH), and Safe Operating Envelope (SOE), and displays them on an LCD.
 
+![image](https://github.com/user-attachments/assets/7104db1a-6291-4848-9509-e7919c6d7f16)
+
+
 ## Features
 
 - Continuous ADC reading using ADC0804
@@ -66,14 +69,7 @@ This project features a Battery Management System (BMS) using the ADC0804 Analog
 
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to improve the project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
-For any questions or suggestions, please contact [your email address].
-```
-
-Feel free to modify the links and the contact information according to your needs.
+For any questions or suggestions, please contact ts14102002@gmail.com
 ```
