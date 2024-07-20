@@ -1,0 +1,64 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              07/20/2024 10:18:19 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "lcd.h"
+   2          #include "adc.h"
+   3          #include "soc.h"
+   4          #include <reg51.h>
+   5          
+   6          sbit BJT_Trigger=P1^4;
+   7          
+   8          void main(void){
+   9   1        unsigned int ADC_Val;
+  10   1        unsigned int SOC_Val;
+  11   1        
+  12   1        int itr=0;
+  13   1        LCD_Init();
+  14   1        ADC_Init();
+  15   1        LCD_Show("Welcome To BMS");
+  16   1        LCD_Cmd(0xC0);
+  17   1        msdelay(399);
+  18   1        LCD_Show("ProtectionModule");
+  19   1        msdelay(3993);
+  20   1        LCD_Cmd(0x01);
+  21   1        LCD_Show("   BMS MODULE");
+  22   1        
+  23   1        while(1){
+  24   2          ADC_Val=ADC_Read();
+  25   2          
+  26   2          SOC_Val=Calculate_SOC(ADC_Val);
+  27   2          LCD_Cmd(0xC0);
+  28   2          LCD_Show("   ");
+  29   2          LCD_DisplaySOC(SOC_Val);
+  30   2          
+  31   2          if(SOC_Val>99){
+  32   3            BJT_Trigger=0;
+  33   3          }
+  34   2          else if(SOC_Val<3){
+  35   3            BJT_Trigger=1;
+  36   3          }
+  37   2          
+  38   2          msdelay(93);
+  39   2        }
+  40   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    130    ----
+   CONSTANT SIZE    =     50    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

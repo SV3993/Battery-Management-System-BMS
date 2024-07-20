@@ -1,0 +1,50 @@
+C51 COMPILER V9.60.7.0   ADC                                                               07/20/2024 10:18:19 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE ADC
+OBJECT MODULE PLACED IN .\Objects\adc.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE adc.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\adc.l
+                    -st) TABS(2) OBJECT(.\Objects\adc.obj)
+
+line level    source
+
+   1          #include "adc.h"
+   2          #include <reg51.h>
+   3          
+   4          sbit ADC_CS=P1^3;
+   5          sbit ADC_RD=P1^2;
+   6          sbit ADC_WR=P1^1;
+   7          sbit ADC_INTR=P1^0;
+   8          
+   9          void ADC_Init(void){
+  10   1        ADC_CS=0;
+  11   1      }
+  12          
+  13          unsigned int ADC_Read(void){
+  14   1        unsigned int ADC_Value=0;
+  15   1        ADC_WR=0;
+  16   1        ADC_WR=1;
+  17   1        while(ADC_INTR == 1);
+  18   1        
+  19   1        
+  20   1        ADC_RD=0;
+  21   1        ADC_Value=P3;
+  22   1        ADC_RD=1;
+  23   1        
+  24   1        
+  25   1        return ADC_Value;
+  26   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,1 @@
+unsigned int Calculate_SOC(unsigned int ADC_Value);

@@ -1,0 +1,7 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\adc.obj",
+".\Objects\soc.obj",
+".\Objects\lcd.obj" 
+TO ".\Objects\BatteryManagementSystem" 
+PRINT(".\Listings\BatteryManagementSystem.m51")
